@@ -4,7 +4,7 @@
     .chat-side
         .chat-side__user
             .chat-side__user-content
-                .chat-side__user-content__name UserName
+                .chat-side__user-content__name userName
                 = link_to  ' ', "/groups/new", id: "new-group", class: "fa fa-pencil-square-o"
                 = link_to ' ', "/user/edit", id: "edit-user", class: "fa fa-cog"
         .chat-side__groups
@@ -12,3 +12,11 @@
                 @groups.each do |group|
                 /未実装
     .chat-main
+        .chat-main__header
+            .chat-main__header--group
+                .chat-main__header--group-name groupName
+                = link_to 'Edit', '/groups/group_id/edit', class: "chat-main__header--group-edit-button"
+                .chat-main__header--group-members MEMBER:
+
+        .chat-main__body
+        .chat-main__footer

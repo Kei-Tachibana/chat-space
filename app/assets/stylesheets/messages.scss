@@ -48,6 +48,20 @@
         }
     }
     &-main {
-
+        width: calc( 100vw - 300px );
+        height: 100vh;
+        float: left;
+        &__header {
+            height: 15%;
+            border: 1px solid #eee;
+            &--group {
+                margin:0 40px;
+                &-name {
+                    font-size: 20px;
+                    color: #333333;
+                    margin: 35px 0 15px;
+                }
+            }
+        }
     }
 }
