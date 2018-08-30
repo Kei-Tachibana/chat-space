@@ -55,13 +55,28 @@
             height: 15%;
             border: 1px solid #eee;
             &--group {
-                margin:0 40px;
+                @include clearfix();
+                margin: 0 40px;
                 &-name {
                     font-size: 20px;
                     color: #333333;
                     margin: 35px 0 15px;
+                    float: left;
+                }
+                &-edit-button {
+                        color: #38AEF0;
+                        font-size: 15px;
+                        padding: 12.5px 20px;
+                        margin: 28px 20px 0;
+                        border: 1px solid #38AEF0;
+                        float: right;
                 }
             }
+            &--members {
+                    color: #999;
+                    font-size: 12px;
+                    margin: 0 40px;
+                    }
         }
     }
 }
