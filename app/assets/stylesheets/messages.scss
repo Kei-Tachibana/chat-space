@@ -5,14 +5,49 @@
 
     &-side {
         float: left;
-        background-color:#2f3e51;
+        background-color:#253141;
         width: 300px;
-        height: 100%;
-        margin: 0px 20px 0px;
-
+        height: 100vh;
         &__user {
-            background-color: #253141;
+            background-color: #090c10;
+            width: 100%;
+            height: 15%;
+            position: relative;
+            &-content {
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                margin: auto 0;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                &__name {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: white;
+                    margin: 0 20px;
+                    position: relative;
+                    display: inline-block;;
+                }
+                a {
+                    color: white;
+                    display: inline-block;
+                }
+                &__new-group {
+                    margin-left: 90px;
+                }
+                &__edit-user {
+                    margin: 0 auto;
+                }
+
+            }
+        }
+        &__groups {
+            width: 300px;
+            height: 85%;
         }
     }
+    &-main {
 
+    }
 }
