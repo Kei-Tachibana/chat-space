@@ -23,4 +23,10 @@
                     .chat-main__messages-time date
                     .chat-main__messages-body text
         .chat-main__footer
-            = form_for @message
+            = form_for @messages, html: {class: "chat-main__footer-form"} do |f|
+                .chat-main__footer-body
+                = f.text_area :body, row: "1", placeholder: "type a message"
+                %i.fas.fa-image
+                = f.file_field :image
+                = f.submit "Send", class: "submit"
+
