@@ -16,17 +16,20 @@
                 .chat-main__header--group-name groupName
                 = link_to 'Edit', '/groups/group_id/edit', class: "chat-main__header--group-edit-button"
             .chat-main__header--members MEMBER:
+
         .chat-main__body
             .chat-main__body--messages-list
                 .chat-main__messages
                     .chat-main__messages-name name
                     .chat-main__messages-time date
                     .chat-main__messages-body text
+
         .chat-main__footer
             = form_for @messages, html: {class: "chat-main__footer-form"} do |f|
                 .chat-main__footer-body
-                = f.text_area :body, row: "1", placeholder: "type a message"
-                %i.fas.fa-image
-                = f.file_field :image
+                    = f.text_field :body, row: "1", placeholder: "type your message here", class: "message"
+                    %label.chat-main__footer-body__label#message_image
+                        %i.fa.fa-image
+                        = f.file_field :image
                 = f.submit "Send", class: "submit"
 

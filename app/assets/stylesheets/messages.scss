@@ -79,9 +79,9 @@
                     }
         }
         &__body {
-            height: calc( 100vh - 15% - 90px );
+            height: calc( 100vh - 15% - 92px);
             &--messages-list {
-                padding-top: 46px;
+                padding-top: 26px;
                 padding-left: 40px;
                 .chat-main__messages {
                     padding: 20px 0;
@@ -103,10 +103,53 @@
                  }
             }
         }
-    }
         &__footer{
             width: 100%;
             height: 90px;
             background-color: #B8C3C7;
+            &-form {
+                height: 90px;
+                margin: 0 40px;
+                position: relative;
+            }
+            &-body {
+                position: relative;
+                .message {
+                    width: calc( 100% - 130px );
+                    font-size: 16px;
+                    color: #434A54;
+                    border: none;
+                    resize: none;
+                    padding: 15px 10px;
+                    margin: 20px 0 16px 0 ;
+                }
+                 &__label {
+                    width: 40px;
+                    height: 50px;
+                    position: absolute;
+                    margin: 32px 130px 20px 0;
+                    top: 0;
+                    right: 0;
+                    #message_image{
+                        position: absolute;
+                        top: 15px;
+                        left: 15px;
+                        display: none;
+                    }
+                }
+            }
+            .submit {
+                width: 100px;
+                height: 50px;
+                color: #fff;
+                background-color: #38AEF0;
+                text-align: center;
+                margin: 20px 0 20px 25px;
+                top: 0;
+                right: 0;
+                border: none;
+                position: absolute;
+            }
+        }
     }
 }
