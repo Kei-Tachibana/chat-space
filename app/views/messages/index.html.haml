@@ -9,6 +9,8 @@
                 = link_to ' ', "/user/edit", id: "edit-user", class: "fa fa-cog"
         .chat-side__groups
             .chat-side__groups-list
+                %h6 sampleGroup
+                %p sampleGroupMessage
 
     .chat-main
         .chat-main__header
@@ -19,6 +21,10 @@
 
         .chat-main__body
             .chat-main__body--messages-list
+                .chat-main__messages
+                    .chat-main__messages-name name
+                    .chat-main__messages-time date
+                    .chat-main__messages-body text
                 .chat-main__messages
                     .chat-main__messages-name name
                     .chat-main__messages-time date

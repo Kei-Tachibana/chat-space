@@ -45,6 +45,16 @@
         &__groups {
             width: 300px;
             height: 85%;
+            &-list {
+                color: white;
+                padding: 20px;
+                h6 {
+                    font-size: 16px;
+                }
+                p{
+                    font-size: 11px
+                }
+            }
         }
     }
     &-main {
