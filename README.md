@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+  Ruby 2.3.1
 
-* System dependencies
+* Rails version
+  Rails 5.0.7
 
-* Configuration
+* DataBase Design
 
-* Database creation
+## User
+---
+### table
+|Column|Type|Options|
+|-|-|-|
+|name|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
 
-* Database initialization
+### association
+- has_many :messages
+- has_many :groups
 
-* How to run the test suite
+## Group
+---
+### table
+|Column|Type|Options|
+|-|-|-|
+|name|string|null: false|
 
-* Services (job queues, cache servers, search engines, etc.)
+### association
 
-* Deployment instructions
-
-* ...
+## Message
+---
+### table
+### association
