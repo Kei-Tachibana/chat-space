@@ -8,3 +8,5 @@ tmp/cache/assets/sprockets/v3.0/qy/qyVm7nysMl077bPu0ujTE184Kd9rx34CFm7qWjum4_4.c
 log/development.log
 public/uploads/*
 tmp/cache/*
+
+*.log
