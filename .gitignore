@@ -1,12 +1,14 @@
 
+/.bundle
+
+/log/*
+!/log/.keep
+/tmp
+/vendor/*
+
 *.cache
-
-tmp/pids/server.pid
-
-tmp/cache/assets/sprockets/v3.0/qy/qyVm7nysMl077bPu0ujTE184Kd9rx34CFm7qWjum4_4.cache
-
-log/development.log
-public/uploads/*
-tmp/cache/*
-
 *.log
+*.png
+*.jpg
+*.jpeg
+*.gif
