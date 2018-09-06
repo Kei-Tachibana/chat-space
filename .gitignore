@@ -12,3 +12,5 @@
 *.jpg
 *.jpeg
 *.gif
+
+log/development.log
