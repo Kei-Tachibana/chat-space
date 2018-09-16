@@ -1,12 +1,10 @@
 .chat
-    .notification
-
     .chat-side
         .chat-side__user
             .chat-side__user-content
                 .chat-side__user-content__name userName
                 = link_to  ' ', "/groups/new", id: "new-group", class: "fa fa-pencil-square-o"
-                = link_to ' ', "/user/edit", id: "edit-user", class: "fa fa-cog"
+                = link_to ' ', "/users/edit", id: "edit-user", class: "fa fa-cog"
         .chat-side__groups
             .chat-side__groups-list
                 %h6 sampleGroup

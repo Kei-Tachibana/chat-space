@@ -1,9 +1,9 @@
 
 /.bundle
 
-/log/*
+/log/*.log
 !/log/.keep
-/tmp
+/tmp/cache/*.cache
 /vendor/*
 
 *.cache
@@ -12,3 +12,5 @@
 *.jpg
 *.jpeg
 *.gif
+
+log/development.log
