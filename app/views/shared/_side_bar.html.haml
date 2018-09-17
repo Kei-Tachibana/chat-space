@@ -1,0 +1,14 @@
+.chat-side__user
+    .chat-side__user-content
+        .chat-side__user-content__name
+            = current_user.name
+        = link_to  ' ', "/groups/new", id: "new-group", class: "fa fa-pencil-square-o"
+        = link_to ' ', "/users/edit", id: "edit-user", class: "fa fa-cog"
+.chat-side__groups
+    .chat-side__groups-list
+        - current_user.groups.each do |group|
+            = link_to group_messages_path(group) do
+                .group__name
+                    = group.name
+                .group__message
+                    メッセージはまだありません。
