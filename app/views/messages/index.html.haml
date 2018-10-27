@@ -1,31 +1,24 @@
 .chat
-    .chat-side
+    .side
         = render 'shared/side_bar'
 
-    .chat-main
-        .chat-main__header
-            .chat-main__header--group
-                .chat-main__header--group-name groupName
+    .main
+        .header
+            .header__group
+                .header__group-name groupName
                 = link_to 'Edit', '/groups/sgroup_id/edit', class: "chat-main__header--group-edit-button"
-            .chat-main__header--members MEMBER:
+            .header__members MEMBER:
 
-        .chat-main__body
-            .chat-main__body--messages-list
-                .chat-main__messages
-                    .chat-main__messages-name name
-                    .chat-main__messages-time date
-                    .chat-main__messages-body text
-                .chat-main__messages
-                    .chat-main__messages-name name
-                    .chat-main__messages-time date
-                    .chat-main__messages-body text
+        .body
+            .messages
+                = render @messages
 
-        .chat-main__footer
-            = form_for @messages, html: {class: "chat-main__footer-form"} do |f|
-                .chat-main__footer-body
-                    = f.text_field :body, row: "1", placeholder: "type your message here", class: "message"
-                    %label.chat-main__footer-body__label#message_image
-                        %i.fa.fa-image
-                        = f.file_field :image
-                = f.submit "Send", class: "submit"
+        .form
+            = form_for [@group, @messages] do |f|
+                = f.text_field :body, class: 'form__message', placeholder: 'Type a Message!'
+                .form__mask
+                    = f.label :image, class: 'form__mask__image' do
+                        = fa_icon 'picture-o', class: 'icon'
+                        = f.file_field :image, class: 'hidden'
+                = f.submit "Send", class: "form__submit"
 

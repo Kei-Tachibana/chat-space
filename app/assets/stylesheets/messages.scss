@@ -5,14 +5,14 @@
         background-color: #38AEF0;
     }
 
-    &-main {
+    .main {
         width: calc( 100vw - 300px );
         height: 100vh;
         float: left;
-        &__header {
+        .header {
             height: 15%;
             border: 1px solid #eee;
-            &--group {
+            &__group {
                 @include clearfix();
                 margin: 0 40px;
                 &-name {
@@ -30,18 +30,18 @@
                         float: right;
                 }
             }
-            &--members {
+            &__members {
                     color: #999;
                     font-size: 12px;
                     margin: 0 40px;
                     }
         }
-        &__body {
+        .body {
             height: calc( 100vh - 15% - 92px);
-            &--messages-list {
+            .messages-list {
                 padding-top: 26px;
                 padding-left: 40px;
-                .chat-main__messages {
+                .messages {
                     padding: 20px 0;
                     &-name {
                         color: #434A54;
@@ -61,7 +61,7 @@
                  }
             }
         }
-        &__footer{
+        .form {
             width: 100%;
             height: 90px;
             background-color: #B8C3C7;
@@ -96,7 +96,7 @@
                     }
                 }
             }
-            .submit {
+            &__submit {
                 width: 100px;
                 height: 50px;
                 color: #fff;
