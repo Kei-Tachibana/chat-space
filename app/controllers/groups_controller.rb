@@ -26,14 +26,6 @@ class GroupsController < ApplicationController
         end
     end
 
-    def show_last_message
-        if (last_message = message.last).present?
-            last_message.body? ? last_message.content : 'You gatta an Image!'
-        else
-            'まだメッセージはありません。'
-        end
-    end
-
     private
     def group_params
         params.require(:group).permit(:name, { user_ids => [] })
