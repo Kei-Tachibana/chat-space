@@ -1,14 +1,19 @@
-.chat-side__user
-    .chat-side__user-content
-        .chat-side__user-content__name
+.side-bar
+    .header
+        %h3.header__name
             = current_user.name
-        = link_to  ' ', "/groups/new", id: "new-group", class: "fa fa-pencil-square-o"
-        = link_to ' ', "/users/edit", id: "edit-user", class: "fa fa-cog"
-.chat-side__groups
-    .chat-side__groups-list
+        %ul.header__lists
+            %li.list
+                = link_to new_group_path do
+                    = fa_icon 'pencil-square-o', class: 'icon'
+            %li.list
+                = link_to edit_user_path(current_user.id) do
+                    = fa_icon 'cog', class: 'icon'
+    .groups
         - current_user.groups.each do |group|
-            = link_to group_messages_path(group) do
-                .group__name
-                    = group.name
-                .group__message
-                    メッセージはまだありません。
+            .group
+                = link_to group_messages_path(group) do
+                    .group__name
+                        = group.name
+                    .group__message
+                        メッセージはまだありません。
