@@ -6,12 +6,12 @@
         .header
             .header__group
                 .header__group-name groupName
-                = link_to 'Edit', '/groups/sgroup_id/edit', class: "chat-main__header--group-edit-button"
+                = link_to 'Edit', '/groups/group_id/edit', class: "chat-main__header--group-edit-button"
             .header__members MEMBER:
 
         .body
             .messages
-                = render @messages
+                = render partial: 'message', collection: @messages
 
         .form
             = form_for [@group, @messages] do |f|

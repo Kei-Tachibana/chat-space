@@ -6,5 +6,6 @@
             = format_pasted_time(message.created_at)
     .lower-message
         - if message.body.present?
-            = message.body
+            %p.lower-message__content
+                = message.body
         = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
