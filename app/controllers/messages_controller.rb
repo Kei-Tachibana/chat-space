@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 
     def index
         @message = Message.new
-        @messages = @group.messages.include(:user)
+        @messages = @group.messages.includes(:user)
     end
 
     def create
@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
           if @message.save
               redirect_to group_messages_path(@group), notice: "Your message was sent successfully."
           else
-              @messages = @group.messages.include(:user)
+              @messages = @group.messages.includes(:user)
               flash.now[:alert] = "Enter a message."
               render :index
           end
