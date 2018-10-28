@@ -7,9 +7,8 @@
   Rails 5.0.7
 
 * DataBase Design
-
-## Group
 ---
+## Group
 ### table
 |Column|Type|Options|
 |-|-|-|
@@ -20,6 +19,7 @@
 - has_many :messages
 - has_many :users, through: :groups_users
 
+---
 ## GroupUser
 ### table
 |Column|Type|Options|
@@ -31,8 +31,8 @@
 - belongs_to :group
 - belongs_to :user
 
-## Message
 ---
+## Message
 ### table
 |Column|Type|Options|
 |-|-|-|
@@ -45,8 +45,8 @@
 - belongs_to :group
 - belongs_to :user
 
-## User
 ---
+## User
 ### table
 |Column|Type|Options|
 |-|-|-|
