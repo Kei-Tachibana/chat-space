@@ -1,8 +1,8 @@
 .message
     .upper-message
-        .user__name
+        .upper-message__user-name
             = message.user.name
-        .date
+        .upper-message__date
             = format_pasted_time(message.created_at)
     .lower-message
         - if message.body.present?
