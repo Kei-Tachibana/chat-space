@@ -31,10 +31,11 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
-  #RSpecにdevise認証判定を持たせる。ControllerMacroを読み込む
+  #RSpecにdevise認証判定を持たせる
+  #作成したmoduleが格納されるディレクトリの配下を読み込む
   Dir[Rails.root.join('spec/support/**/*.rb')].each {|f| require f}
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.extend ControllerMacros
+  config.include ControllerMacros
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

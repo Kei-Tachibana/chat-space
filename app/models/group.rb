@@ -6,7 +6,7 @@ class Group < ApplicationRecord
 
     def show_last_message
         if (last_message = messages.last).present?
-            last_message.body? ? last_message.content : 'You gatta an Image!'
+            last_message.body? ? last_message.body : 'You gatta an Image!'
         else
             'No messages'
         end
