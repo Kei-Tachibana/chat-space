@@ -19,7 +19,7 @@
             &__name {
                 font-size: 20px;
                 color: #333;
-                margin-top: 35px;
+                margin: 35px 0 0 12px;
             }
            &__members {
                 @include clearfix();
@@ -54,13 +54,13 @@
         height: calc(100% - 100px - 90px);
         overflow: scroll;
         .message {
-            padding-top: 5px;
+            padding: 40px 0 0 40px;
             .upper-message {
                 &__user-name {
                     color: #434A54;
                     font-size: 16px;
                     font-weight: bold;
-                    width: calc(100% - 300px);
+                    width: calc(100% - 500px);
                     float: left;
                 }
                 &__date {
