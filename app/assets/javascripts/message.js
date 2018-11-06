@@ -50,6 +50,7 @@ $(function(){
     })
     .done (function(data){
       appendMessage(data);
+      $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
     })
     .fail (function(){
       alert("Server Connection Error")
