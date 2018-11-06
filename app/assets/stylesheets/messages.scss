@@ -47,12 +47,13 @@
             }
         }
     }
-    .messages {
+    .message-list {
         background-color: #FFF;
         box-sizing: border-box;
-        padding: 20px 0;
+        padding: 20px 10px;
         height: calc(100% - 100px - 90px);
         .message {
+            padding-top: 5px;
             .upper-message {
                 &__user-name {
                     color: #434A54;
