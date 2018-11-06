@@ -36,15 +36,4 @@ $(function(){
     $('.message').append(html);
   };
 
-  //@messagesを取得する
-  function getMessages() {
-    let messageNumber = $('.messages').length;
-    let num = { "id": messageNumber };
-      $.ajax({
-        url:
-        type:
-        dataType:
-        data:
-      })
-  }
 })
