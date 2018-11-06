@@ -36,4 +36,18 @@ $(function(){
     $('.message').append(html);
   };
 
+  //フォームが送信されたときのイベント
+  $('.form__submit').on ('submit' function(e) {
+    e.preventDefault();
+    let formData = new FormData(this);
+    let href = window.location.href + '/messages'
+    $.ajax({
+      url: href,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+  })
 })
