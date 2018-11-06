@@ -1,5 +1,4 @@
 $(function(){
-  //messageを追加する
   function appendMessage(data) {
     //imageデータの有無で表示内容を分岐する
     if (data.image.url){
@@ -37,7 +36,7 @@ $(function(){
   };
 
   //フォームが送信されたときのイベント
-  $('.form__submit').on ('submit' function(e) {
+  $('.form__submit').on ('submit', function(e) {
     e.preventDefault();
     let formData = new FormData(this);
     let href = window.location.href + '/messages'
