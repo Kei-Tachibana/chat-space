@@ -49,5 +49,11 @@ $(function(){
       processData: false,
       contentType: false
     })
+    .done (function(data){
+      appendMessage(data);
+    })
+    .fail (function(){
+      alert("Server Connection Error")
+    })
   })
 })

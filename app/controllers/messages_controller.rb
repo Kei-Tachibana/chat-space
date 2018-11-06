@@ -20,9 +20,7 @@ class MessagesController < ApplicationController
                     render :index
                     flash.now[:alert] = "Enter a message."
                 }
-                format.json {
-
-                }
+                format.json
             end
         end
     end
