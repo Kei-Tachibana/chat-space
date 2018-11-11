@@ -36,7 +36,9 @@ $(function() {
       contentType: false
     })
     .done(function(data){
-      if (data.text != null || data.image != null) {
+      if (data == null) {
+        return false
+      } else {
         let newMessage = buildHTML(data)
         $list.append(newMessage)
         $list.animate({scrollTop: $list[0].scrollHeight});
