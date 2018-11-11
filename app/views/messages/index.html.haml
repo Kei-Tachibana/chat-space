@@ -10,11 +10,11 @@
                 / = hogehogehoge class: "member"
         .right-header
             = link_to 'Edit', '/groups/group_id/edit', class: "right-header__button"
-    .messages
+    .message-list
         = render partial: 'message', collection: @messages
 
     .form
-        = form_for ( [@group, @message] ) do |f|
+        = form_for [@group, @message], html: {class: 'message-form'} do |f|
             = f.text_field :body, class: 'form__message', placeholder: 'Type a Message!'
             .form__mask
                 = f.label :image, class: 'form__mask__image' do
