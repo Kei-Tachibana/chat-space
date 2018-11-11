@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 
+  def index
+      @users = Users.where('name LIKE(?)' "%%").limit(5)
+      respond_to do |format|
+        format.html
+        format.json
+      end
+  end
+
   def edit
   end
 
