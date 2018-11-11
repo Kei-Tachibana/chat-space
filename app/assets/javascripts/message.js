@@ -10,12 +10,12 @@ $(function() {
                       ${message.name}
                     </div>
                     <div class="upper-message__date">
-                      ${message.created_at}
+                      ${message.time}
                     </div>
                   </div>
                   <div class="lower-message">
                     <p class="lower-message__content">
-                      ${message.body}
+                      ${message.text}
                     </p>
                       ${imageHTML}
                   </div>
@@ -28,7 +28,7 @@ $(function() {
     let $list = $(".message-list")
     let formData = new FormData(this);
     $.ajax({
-      url: $(".message-form").attr("action"),
+      url: window.location.href,
       type: "POST",
       data: formData,
       dataType: 'json',
@@ -36,10 +36,12 @@ $(function() {
       contentType: false
     })
     .done(function(data){
-      let newMessage = buildHTML(data)
-      $list.append(newMessage)
-      $list.animate({scrollTop: $list[0].scrollHeight});
-      $(".message-form")[0].reset();
+      if (data.text != null || data.image != null) {
+        let newMessage = buildHTML(data)
+        $list.append(newMessage)
+        $list.animate({scrollTop: $list[0].scrollHeight});
+        $(".message-form")[0].reset();
+      }
     })
     .fail(function(){
       alert("Server Connection Error");
