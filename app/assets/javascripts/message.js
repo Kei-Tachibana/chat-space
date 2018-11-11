@@ -1,45 +1,36 @@
-$(function(){
-  function appendMessage(data) {
-    //imageデータの有無で表示内容を分岐する
-    if (data.image.url){
-      let imageUrl = data.image.url;
-      let html = `<div class="upper-message">
-                    <div class="upper-message__user-name">
-                        data.name
-                    </div>
-                    <div class="upper-message__date">
-                      data.created_at.strftime("%Y/%m/%d %H:%M")
-                    </div>
-                  </div>
-                  <div class="lower-message">
-                    <p class="lower-message__content">
-                      data.body
-                    </p>
-                    <img src="'imageUrl'" class="lower-message__image">
-                  </div>`
-    } else {
-      let html = `<div class="upper-message">
-                    <div class="upper-message__user-name">
-                        data.name
-                    </div>
-                    <div class="upper-message__date">
-                      data.created_at.strftime("%Y/%m/%d %H:%M")
-                    </div>
-                  </div>
-                  <div class="lower-message">
-                    <p class="lower-message__content">
-                      data.body
-                    </p>
-                  </div>`
+$(function() {
+  function appendMessage(message) {
+    let messageHTML = "";
+    let imageHTML = "";
+    if (message.body) {
+      messageHTML += message.body;
+      console.log(messageHTML);
     }
-    $('.message').append(html);
-  };
+    if (message.image) {
+      imageHTML += `<img src=${message.image}>`
+      console.log(imageHTML);
+    }
+    let html = `<div class="upper-message">
+                  <div class="upper-message__user-name">
+                      ${message.name}
+                  </div>
+                  <div class="upper-message__date">
+                    ${message.created_at}
+                  </div>
+                </div>
+                <div class="lower-message">
+                  <p class="lower-message__content">
+                    ${messageHTML}
+                  </p>
+                  ${imageHTML}
+                </div>`
+    return html;
+}
 
-  //フォームが送信されたときのイベント
-  $('.form__submit').on ('submit', function(e) {
+  $('.message-form').on ('submit', function(e) {
     e.preventDefault();
     let formData = new FormData(this);
-    let href = window.location.href + '/messages'
+    let href = $(this).attr('action');
     $.ajax({
       url: href,
       type: "POST",
@@ -48,12 +39,12 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done (function(data){
+    .done(function(data){
       appendMessage(data);
-      $(".message-list").scrollTop($(".message-list")[0].scrollHeight);
+      $('.message-list').animate( { scrollTop: $('.message-list')[0].scrollHeight } );
     })
-    .fail (function(){
-      alert("Server Connection Error")
-    })
-  })
-})
+    .fail(function(){
+      alert("Server Connection Error");
+    });
+  });
+});

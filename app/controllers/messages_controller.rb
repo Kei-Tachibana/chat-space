@@ -8,20 +8,15 @@ class MessagesController < ApplicationController
 
     def create
         @message = @group.messages.new(message_params)
-        respond_to do |format|
-            if @message.save
-                format.html {
-                    redirect_to group_messages_path(@group), notice: "Your message was sent successfully."
-                }
-                format.json
-            else
-                @messages = @group.messages.includes(:user)
-                format.html {
-                    render :index
-                    flash.now[:alert] = "Enter a message."
-                }
+        if @message.save
+            respond_to do |format|
+                format.html { redirect_to group_messages_path(@group), notice: "Your message was sent successfully." }
                 format.json
             end
+        else
+            @messages = @group.messages.includes(:user)
+            flash.now[:alert] = "Enter a message."
+            render :index
         end
     end
 
