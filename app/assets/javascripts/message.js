@@ -28,7 +28,7 @@ $(function() {
     let $list = $(".message-list")
     let formData = new FormData(this);
     $.ajax({
-      url: $(".message-form").attr("action"),
+      url: $(this).attr("action"),
       type: "POST",
       data: formData,
       dataType: 'json',
