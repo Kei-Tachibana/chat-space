@@ -50,7 +50,7 @@
 ### table
 |Column|Type|Options|
 |-|-|-|
-|nickname|string|null: false|
+|name|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 
