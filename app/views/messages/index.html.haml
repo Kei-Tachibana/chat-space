@@ -12,7 +12,7 @@
                     %li.members__list
                         = user.name
         .right-header
-            = link_to 'Edit', '/groups/group_id/edit', class: "right-header__button"
+            = link_to 'Edit', '/groups/#{group_id}/edit', class: "right-header__button"
     .message-list
         = render partial: 'message', collection: @messages
 
