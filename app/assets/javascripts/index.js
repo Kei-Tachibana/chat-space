@@ -39,7 +39,6 @@ $(function(){
     })
   });
 
-  //jqueryで動的に作成したDOMに対してイベントを生成する
   $(document).on("click", ".chat-group-user__btn--add", function(){
     let userId = $(this).attr("data-user-id");
     let userName = $(this).attr("data-user-name");
