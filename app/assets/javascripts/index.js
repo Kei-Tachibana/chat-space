@@ -1,10 +1,10 @@
 $(function(){
   let userList = $("#user-search-result");
 
-  function appendUser(data){
+  function appendUser(user){
     let body = `<div class="chat-group-user clearfix">
-                  <p class="chat-group-user__name">${data.name}</p>
-                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${data.id}" data-user-name="${data.name}">add</a>
+                  <p class="chat-group-user__name">${user.name}</p>
+                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">add</a>
                 </div>`;
     userList.append(body);
   }
