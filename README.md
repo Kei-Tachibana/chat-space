@@ -7,6 +7,7 @@
   Rails 5.0.7
 
 * DataBase Design
+
 ---
 ## Group
 ### table
@@ -50,7 +51,7 @@
 ### table
 |Column|Type|Options|
 |-|-|-|
-|nickname|string|null: false|
+|name|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 

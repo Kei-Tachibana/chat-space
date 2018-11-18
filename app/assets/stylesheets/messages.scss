@@ -21,12 +21,16 @@
                 color: #333;
                 margin: 35px 0 0 12px;
             }
-           &__members {
+           .members {
                 @include clearfix();
                 color: #999;
                 font-size: 12px;
                 margin-top: 15px;
-                .member {
+                margin-left: 12px;
+                &__list {
+                    float: left;
+                }
+                &__list + li {
                     display: inline-block;
                     padding-right: 5px;
                 }
