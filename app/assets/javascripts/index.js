@@ -28,9 +28,7 @@ $(function(){
     })
     .done(function(users){
       userList.empty();
-      if (users == null) {
-        return false
-      } else {
+      if (users !== null) {
         users.forEach(function(user){
           appendUser(user);
         });
