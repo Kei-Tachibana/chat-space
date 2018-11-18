@@ -16,7 +16,6 @@ $(function(){
                   <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">delete</a>
                 </div>`;
     return html;
-    console.log(html);
   }
 
   $("#user-search-field").on("keyup", function(){
@@ -28,7 +27,6 @@ $(function(){
       dataType: "json"
     })
     .done(function(users){
-      console.log("done");
       userList.empty();
       if (users == null) {
         return false
@@ -45,13 +43,11 @@ $(function(){
 
   //jqueryで動的に作成したDOMに対してイベントを生成する
   $(document).on("click", ".chat-group-user__btn--add", function(){
-    console.log("add");
     let userId = $(this).attr("data-user-id");
     let userName = $(this).attr("data-user-name");
     let html = buildHTML(userId, userName);
     $("#chat-group-users").append(html);
   });
-
   $(document).on("click", ".js-remove-btn", function(){
     $(".js-chat-member").remove();
   });
