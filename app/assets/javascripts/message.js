@@ -27,8 +27,8 @@ $(function() {
   }
 
   function displayMessage(message) {
-        let html = buildHTML(message)
-        $list.append(html)
+        let html = buildHTML(message);
+        $list.append(html);
         $list.animate({scrollTop: $list[0].scrollHeight});
   };
 
