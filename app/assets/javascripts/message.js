@@ -1,10 +1,13 @@
 $(function() {
+
+  let $list = $(".message-list");
+
   function buildHTML(message) {
     let imageHTML = "";
     if (message.image) {
       imageHTML += `<img src="${message.image}">`;
     }
-    let html = `<div class="message" data-id="${message.id}">
+    let messageHTML = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${message.name}
@@ -20,28 +23,31 @@ $(function() {
                       ${imageHTML}
                   </div>
                 </div>`;
-    return html;
+    return messageHTML;
   }
+
+  function displayMessage(message) {
+        let html = buildHTML(message);
+        $list.append(html);
+        $list.animate({scrollTop: $list[0].scrollHeight});
+  };
 
   $(".message-form").on("submit", function(e){
     e.preventDefault();
-    let $list = $(".message-list")
     let formData = new FormData(this);
     $.ajax({
       url: $(this).attr("action"),
       type: "POST",
       data: formData,
-      dataType: 'json',
+      dataType: "json",
       processData: false,
       contentType: false
     })
     .done(function(data){
       if (data == null) {
-        return false
+        return false;
       } else {
-        let newMessage = buildHTML(data)
-        $list.append(newMessage)
-        $list.animate({scrollTop: $list[0].scrollHeight});
+        displayMessage(data);
         $(".message-form")[0].reset();
       }
     })
@@ -52,4 +58,31 @@ $(function() {
       $(".form__submit").prop("disabled", false);
     })
   });
+
+  $(function(){
+    setInterval(autoReload, 5000);
+  });
+
+  function autoReload() {
+    let newMessageId = $(".message").last().data("message-id");
+
+    if (location.pathname.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        url: location.pathname,
+        type: "GET",
+        data: { id: newMessageId },
+        dataType: "json"
+      })
+      .done(function(json) {
+        json.messages.forEach(function(message) {
+          if (message.id > newMessageId) {
+            displayMessage(message);
+          };
+        });
+      })
+      .fail(function() {
+        alert("Server Connection Error");
+      })
+    };
+  };
 });
