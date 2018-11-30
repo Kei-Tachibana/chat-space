@@ -46,10 +46,9 @@ $(function() {
     .done(function(data){
       if (data == null) {
         return false;
-      } else {
-        displayMessage(data);
-        $(".message-form")[0].reset();
       }
+      displayMessage(data);
+      $(".message-form")[0].reset();
     })
     .fail(function(){
       alert("Server Connection Error");
